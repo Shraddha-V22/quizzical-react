@@ -68,6 +68,7 @@ function App() {
               placeholder="No. of Questions"
               className="w-full rounded-lg border-[1px] border-darkBlue p-2 indent-1"
               onChange={handleChange}
+              required
             />
             <select
               name="category"

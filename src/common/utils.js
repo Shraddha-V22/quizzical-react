@@ -1,12 +1,13 @@
 export default async function fetchData(amount, category, difficulty) {
-  if (amount && category && difficulty) {
-    const response = await fetch(
-      `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`
-    );
-    const data = await response.json();
-    return data;
+  let url;
+  if (category && difficulty) {
+    url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`;
+  } else {
+    url = `https://opentdb.com/api.php?amount=${amount}&type=multiple`;
   }
-  return [];
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
 }
 
 export function shuffleArray(array) {
